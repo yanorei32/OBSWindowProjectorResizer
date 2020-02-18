@@ -4,9 +4,9 @@ using System.Windows.Forms;
 
 class Program {
 	static void Main() {
-		var vvw = new VRViewWindow();
-		vvw.SetResolution((IntPtr)(0), new Size(640, 480));
-		Console.WriteLine(vvw.GetResolution());
+		Application.EnableVisualStyles();
+		Application.SetCompatibleTextRenderingDefault(false);
+		Application.Run(new MainForm());
 	}
 }
 

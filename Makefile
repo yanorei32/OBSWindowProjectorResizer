@@ -10,10 +10,11 @@ SRC			= src\\Program.cs \
 DEPS	=
 
 CSC_FLAGS		=	/nologo \
+					/target:winexe \
 					/utf8output \
-
-DEBUG_FLAGS		= 
-RELEASE_FLAGS	= 
+					# /win32icon:res\\icon.ico \
+					# /resource:res\\icon.ico,icon \
+					# /resource:res\\logo.png,logo \
 
 $(PROJ_NAME)/$(TARGET): $(SRC)
 	-mkdir -p $(PROJ_NAME)
@@ -21,7 +22,6 @@ $(PROJ_NAME)/$(TARGET): $(SRC)
 
 .PHONY: all
 all: $(PROJ_NAME)/$(TARGET)
-
 
 .PHONY: clean
 clean:

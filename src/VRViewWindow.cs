@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 
 class VRViewWindow {
@@ -143,6 +143,9 @@ class VRViewWindow {
 		RECT clientRect;
 
 		if (!GetClientRect(hWnd, out clientRect))
+			return new Size(0, 0);
+
+		if (!IsWindowVisible(hWnd))
 			return new Size(0, 0);
 
 		return new Size(
