@@ -4,6 +4,8 @@ PROJ_NAME	= SteamVRVRViewResizer
 TARGET		= SteamVRVRViewResizer.exe
 SRC			= src\\Program.cs \
 			  src\\VRViewWindow.cs \
+			  src\\Util.cs \
+			  src\\LaunchFromShortcut.cs \
 			  src\\Form\\MainForm.cs \
 			  src\\Form\\MainForm.Design.cs
 

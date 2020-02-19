@@ -1,5 +1,7 @@
 using System;
 using System.Drawing;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -8,7 +10,8 @@ partial class MainForm : Form {
 	PictureBox	logo;
 
 	Button		apply,
-				refresh;
+				refresh,
+				saveShortcut;
 
 	ComboBox	resolution;
 
@@ -38,40 +41,83 @@ partial class MainForm : Form {
 			size.Height
 		);
 
-		this.apply.Enabled = true;
+		this.saveShortcut.Enabled = this.apply.Enabled = true;
+	}
+
+	bool getSize(out Size s) {
+		try {
+			s = Util.Str2Size(resolution.Text);
+
+		} catch {
+			MessageBox.Show(
+				string.Format("{0} is not valid", resolution.Text),
+				Program.APPLICATION_NAME,
+				MessageBoxButtons.OK,
+				MessageBoxIcon.Hand
+			);
+
+			s = new Size(0,0);
+			return false;
+		}
+
+		if (s.IsEmpty) {
+			MessageBox.Show(
+				"Resolution is not valid (empty)",
+				Program.APPLICATION_NAME,
+				MessageBoxButtons.OK,
+				MessageBoxIcon.Asterisk
+			);
+
+			return false;
+		}
+
+		return true;
 	}
 
 	void applyClick(object sender, EventArgs e) {
-		var regex = new Regex(@"^\d+x\d+$");
+		Size s;
+		if (!getSize(out s)) return;
 
-		if (!regex.Match(resolution.Text).Success) {
-			MessageBox.Show(
-				string.Format(
-					"{0} is invalid",
-					resolution.Text
-				),
-				this.Text,
-				MessageBoxButtons.OK,
-				MessageBoxIcon.Asterisk
-			);
-			return;
-		}
-
-		var splitted = resolution.Text.Split(new Char[] {'x'});
-		var size = new Size(int.Parse(splitted[0]), int.Parse(splitted[1]));
-
-		if (size.IsEmpty) {
-			MessageBox.Show(
-				"Resolution is not valid (empty)",
-				this.Text,
-				MessageBoxButtons.OK,
-				MessageBoxIcon.Asterisk
-			);
-			return;
-		}
-
-		vvw.SetResolution(this.Handle, size);
+		vvw.SetResolution(this.Handle, s);
 		updateUI();
+	}
+
+	static string getExeDir() {
+		return Path.GetDirectoryName(
+			Application.ExecutablePath
+		);
+	}
+
+	void saveShortcutClick(object sender, EventArgs e) {
+		Size s;
+		if (!getSize(out s)) return;
+
+		var s_str = Util.Size2Str(s);
+
+		var t = Type.GetTypeFromCLSID(
+			new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8")
+		);
+
+		dynamic shell = Activator.CreateInstance(t);
+
+		var shortcut = shell.CreateShortcut(
+			Path.Combine(
+				getExeDir(),
+				string.Format(
+					"{1} - {0}.lnk",
+					s_str,
+					Path.GetFileNameWithoutExtension(Application.ExecutablePath)
+				)
+			)
+		);
+
+		shortcut.IconLocation = Application.ExecutablePath + ",1";
+		shortcut.TargetPath = Application.ExecutablePath;
+		shortcut.Arguments = "\"" + s_str + "\"";
+		shortcut.Save();
+
+		Marshal.FinalReleaseComObject(shortcut);
+		Marshal.FinalReleaseComObject(shell);
 	}
 
 	void refreshClick(object sender, EventArgs e) {

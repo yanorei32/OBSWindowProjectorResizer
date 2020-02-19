@@ -23,6 +23,7 @@ partial class MainForm : Form {
 		this.resolution		= new ComboBox();
 		this.apply			= new Button();
 		this.refresh		= new Button();
+		this.saveShortcut	= new Button();
 		this.currentStatus	= new Label();
 
 		this.SuspendLayout();
@@ -94,12 +95,21 @@ partial class MainForm : Form {
 		this.apply.Click		+= new EventHandler(applyClick);
 		this.apply.UseMnemonic	= true;
 
-		curH += this.apply.Size.Height;
+		curW += this.apply.Size.Width;
+		
+		this.saveShortcut.Text			= "Save SC (&S)";
+		this.saveShortcut.Size			= new Size(75, 23);
+		this.saveShortcut.Location		= new Point(curW, curH);
+		this.saveShortcut.Click			+= new EventHandler(saveShortcutClick);
+		this.saveShortcut.UseMnemonic	= true;
+
+		curH += this.saveShortcut.Size.Height;
+
 
 		/*\
 		|*| Form
 		\*/
-		this.Text				= "SteamVR VRView Resizer";
+		this.Text				= Program.APPLICATION_NAME;
 		this.ClientSize			= new Size(imgW + (margin ), curH);
 		this.MinimumSize		= this.Size;
 		this.MaximumSize		= this.Size;
@@ -109,6 +119,7 @@ partial class MainForm : Form {
 		this.Controls.Add(this.logo);
 		this.Controls.Add(this.resolution);
 		this.Controls.Add(this.apply);
+		this.Controls.Add(this.saveShortcut);
 		this.Controls.Add(this.refresh);
 		this.Controls.Add(this.currentStatus);
 
