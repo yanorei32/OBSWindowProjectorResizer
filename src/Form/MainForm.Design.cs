@@ -90,15 +90,15 @@ partial class MainForm : Form {
 		|*| Apply
 		\*/
 		this.apply.Text			= "Apply (&A)";
-		this.apply.Size			= new Size(75, 23);
+		this.apply.Size			= new Size(100, 23);
 		this.apply.Location		= new Point(curW, curH);
 		this.apply.Click		+= new EventHandler(applyClick);
 		this.apply.UseMnemonic	= true;
 
 		curW += this.apply.Size.Width;
 		
-		this.saveShortcut.Text			= "Save SC (&S)";
-		this.saveShortcut.Size			= new Size(75, 23);
+		this.saveShortcut.Text			= "Save Shortcut (&S)";
+		this.saveShortcut.Size			= new Size(100, 23);
 		this.saveShortcut.Location		= new Point(curW, curH);
 		this.saveShortcut.Click			+= new EventHandler(saveShortcutClick);
 		this.saveShortcut.UseMnemonic	= true;

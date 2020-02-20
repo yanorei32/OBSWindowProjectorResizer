@@ -36,7 +36,7 @@ partial class MainForm : Form {
 		}
 
 		this.currentStatus.Text = string.Format(
-			"Status: {0}x{1}",
+			"CurrentReso: {0}x{1}",
 			size.Width,
 			size.Height
 		);
