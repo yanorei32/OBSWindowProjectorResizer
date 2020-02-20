@@ -34,10 +34,10 @@ partial class MainForm : Form {
 		\*/
 		this.logo.Location			= new Point(curH, curW);
 		this.logo.Size				= new Size(imgW, imgH);
-		// this.logo.BackgroundImage	= new Bitmap(
-		// 	execAsm.GetManifestResourceStream("logo")
-		// );
-        //
+		this.logo.BackgroundImage	= new Bitmap(
+			execAsm.GetManifestResourceStream("logo")
+		);
+
 		curH += this.logo.Size.Height;
 		curH += padding;
 
@@ -114,7 +114,7 @@ partial class MainForm : Form {
 		this.MinimumSize		= this.Size;
 		this.MaximumSize		= this.Size;
 		this.FormBorderStyle	= FormBorderStyle.FixedSingle;
-		// this.Icon				= new Icon(execAsm.GetManifestResourceStream("icon"));
+		this.Icon				= new Icon(execAsm.GetManifestResourceStream("icon"));
 
 		this.Controls.Add(this.logo);
 		this.Controls.Add(this.resolution);
