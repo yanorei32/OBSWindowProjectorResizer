@@ -51,6 +51,7 @@ $(PROJ_NAME).zip: all
 
 .PHONY: clean
 clean:
-	rm -r $(PROJ_NAME)
+	rm -f $(PROJ_NAME).zip
+	rm -rf $(RELEASE_DIR)
 
 
