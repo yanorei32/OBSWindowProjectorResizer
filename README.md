@@ -37,5 +37,5 @@ make genzip # zip create
 ```
 
 ## Special thanks
-Idea, Logo: [@FUMI23_VRC](https://twitter.com/intent/user?user_id=1217010323695128578)
+Logo: [@FUMI23_VRC](https://twitter.com/intent/user?user_id=1217010323695128578)
 
