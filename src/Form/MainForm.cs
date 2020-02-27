@@ -111,7 +111,7 @@ partial class MainForm : Form {
 			)
 		);
 
-		shortcut.IconLocation = Application.ExecutablePath + ",1";
+		shortcut.IconLocation = Application.ExecutablePath + ",0";
 		shortcut.TargetPath = Application.ExecutablePath;
 		shortcut.Arguments = "\"" + s_str + "\"";
 		shortcut.Save();
