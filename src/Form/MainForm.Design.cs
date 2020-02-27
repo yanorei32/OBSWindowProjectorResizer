@@ -45,7 +45,7 @@ partial class MainForm : Form {
 		|*| Refresh button column
 		\*/
 		this.refresh.Text			= "Refresh (&R)";
-		this.refresh.Size			= new Size(75, 23);
+		this.refresh.Size			= new Size(125, 23);
 		this.refresh.Location		= new Point(curW, curH);
 		this.refresh.Click			+= new EventHandler(refreshClick);
 		this.refresh.UseMnemonic	= true;
@@ -90,7 +90,7 @@ partial class MainForm : Form {
 		|*| Apply
 		\*/
 		this.apply.Text			= "Apply (&A)";
-		this.apply.Size			= new Size(100, 23);
+		this.apply.Size			= new Size(125, 23);
 		this.apply.Location		= new Point(curW, curH);
 		this.apply.Click		+= new EventHandler(applyClick);
 		this.apply.UseMnemonic	= true;
@@ -98,7 +98,7 @@ partial class MainForm : Form {
 		curW += this.apply.Size.Width;
 		
 		this.saveShortcut.Text			= "Save Shortcut (&S)";
-		this.saveShortcut.Size			= new Size(100, 23);
+		this.saveShortcut.Size			= new Size(125, 23);
 		this.saveShortcut.Location		= new Point(curW, curH);
 		this.saveShortcut.Click			+= new EventHandler(saveShortcutClick);
 		this.saveShortcut.UseMnemonic	= true;
