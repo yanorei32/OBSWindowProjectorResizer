@@ -1,12 +1,12 @@
 CSC		= /cygdrive/c/windows/microsoft.net/framework/v4.0.30319/csc.exe
 
-PROJ_NAME	= SteamVRVRViewResizer
+PROJ_NAME	= OBSWindowProjectorResizer
 TARGET		= $(PROJ_NAME).exe
 RELEASE_DIR	= $(PROJ_NAME)
-REPO		= https://github.com/Yanorei32/SteamVRVRViewResizer
+REPO		= https://github.com/Yanorei32/OBSWindowProjectorResizer
 
 SRCS		= src\\Program.cs \
-			  src\\VRViewWindow.cs \
+			  src\\WindowProjectorWindow.cs \
 			  src\\Util.cs \
 			  src\\LaunchFromShortcut.cs \
 			  src\\Form\\MainForm.cs \

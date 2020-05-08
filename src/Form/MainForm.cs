@@ -18,20 +18,20 @@ partial class MainForm : Form {
 	Label		currentStatus;
 
 
-	VRViewWindow vvw;
+	WindowProjectorWindow wpw;
 
 	void updateUI() {
 		this.apply.Enabled = false;
 
-		if (vvw.HWnd == IntPtr.Zero) {
-			this.currentStatus.Text = "VRView Not found";
+		if (wpw.HWnd == IntPtr.Zero) {
+			this.currentStatus.Text = "WindowProjector Not found";
 			return;
 		}
 
-		var size = vvw.GetResolution();
+		var size = wpw.GetResolution();
 
 		if (size.IsEmpty) {
-			this.currentStatus.Text = "VRView Not available";
+			this.currentStatus.Text = "WindowProjector Not available";
 			return;
 		}
 
@@ -78,7 +78,7 @@ partial class MainForm : Form {
 		Size s;
 		if (!getSize(out s)) return;
 
-		vvw.SetResolution(this.Handle, s);
+		wpw.SetResolution(this.Handle, s);
 		updateUI();
 	}
 
@@ -121,15 +121,15 @@ partial class MainForm : Form {
 	}
 
 	void refreshClick(object sender, EventArgs e) {
-		vvw.ReloadWindow();
+		wpw.ReloadWindow();
 		updateUI();
 	}
 
 	public MainForm() {
 		initializeComponent();
 
-		vvw = new VRViewWindow();
-		vvw.ReloadWindow();
+		wpw = new WindowProjectorWindow();
+		wpw.ReloadWindow();
 		updateUI();
 	}
 }

@@ -2,7 +2,7 @@ using System;
 using System.Windows.Forms;
 
 class Program {
-	public const string APPLICATION_NAME = "SteamVR VRView Resizer";
+	public const string APPLICATION_NAME = "OBS WindowProjector Resizer";
 
 	static void Main(string[] Args) {
 		switch (Args.Length) {

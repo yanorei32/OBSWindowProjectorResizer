@@ -4,11 +4,11 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 
-class VRViewWindow {
-	// Clinet RECT - OBS Gamecapture's value
+class WindowProjectorWindow {
+	// Clinet RECT - OBS Gamecapture's value - Count with mspaint.exe
 	Size CLIENT_MARGIN = new Size(
 		958 - 958,
-		488 - 455
+		488 - 455 - 33
 	);
 
 	IntPtr hWnd;
@@ -215,13 +215,13 @@ class VRViewWindow {
 		var titleStr = titleSB.ToString();
 
 		Console.WriteLine(titleStr);
-		if (titleStr != "VR View")
+		if (titleStr != "ウィンドウ プロジェクター (プレビュー)")
 			return true;
 
 		int pid;
 		GetWindowThreadProcessId(hWnd, out pid);
 
-		if (Process.GetProcessById(pid).ProcessName != "vrmonitor")
+		if (Process.GetProcessById(pid).ProcessName != "obs64")
 			return true;
 
 		this.hWnd = hWnd;
@@ -234,7 +234,7 @@ class VRViewWindow {
 		EnumWindows(new EnumWindowsDelegate(EnumWindowCallback), IntPtr.Zero);
 	}
 
-	public VRViewWindow() {
+	public WindowProjectorWindow() {
 		ReloadWindow();
 	}
 }

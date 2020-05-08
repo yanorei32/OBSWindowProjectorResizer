@@ -8,7 +8,7 @@ partial class MainForm : Form {
 	void initializeComponent() {
 		const int
 			imgW = 320,
-			imgH = 84,
+			imgH = 69,
 			margin = 13,
 			padding = 6;
 

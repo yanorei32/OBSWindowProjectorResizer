@@ -20,9 +20,9 @@ static class LaunchFromShortcut {
 			return;
 		}
 
-		var vvw = new VRViewWindow();
+		var wpw = new WindowProjectorWindow();
 
-		if (vvw.HWnd == IntPtr.Zero) {
+		if (wpw.HWnd == IntPtr.Zero) {
 			MessageBox.Show(
 				"VRView window not found",
 				Program.APPLICATION_NAME,
@@ -33,7 +33,7 @@ static class LaunchFromShortcut {
 			return;
 		}
 
-		if (vvw.GetResolution().IsEmpty) {
+		if (wpw.GetResolution().IsEmpty) {
 			MessageBox.Show(
 				"VRView window is not available",
 				Program.APPLICATION_NAME,
@@ -55,7 +55,7 @@ static class LaunchFromShortcut {
 			return;
 		}
 
-		vvw.SetResolution((IntPtr)0, s);
+		wpw.SetResolution((IntPtr)0, s);
 	}
 }
 
