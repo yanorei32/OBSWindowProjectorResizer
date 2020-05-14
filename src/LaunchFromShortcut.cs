@@ -24,7 +24,7 @@ static class LaunchFromShortcut {
 
 		if (wpw.HWnd == IntPtr.Zero) {
 			MessageBox.Show(
-				"VRView window not found",
+				"WindowProjector window not found",
 				Program.APPLICATION_NAME,
 				MessageBoxButtons.OK,
 				MessageBoxIcon.Hand
