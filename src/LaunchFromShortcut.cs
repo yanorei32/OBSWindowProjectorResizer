@@ -35,7 +35,7 @@ static class LaunchFromShortcut {
 
 		if (wpw.GetResolution().IsEmpty) {
 			MessageBox.Show(
-				"VRView window is not available",
+				"WindowProjector window is not available",
 				Program.APPLICATION_NAME,
 				MessageBoxButtons.OK,
 				MessageBoxIcon.Hand
