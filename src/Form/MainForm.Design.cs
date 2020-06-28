@@ -117,11 +117,11 @@ partial class MainForm : Form {
 		this.Icon				= new Icon(execAsm.GetManifestResourceStream("icon"));
 
 		this.Controls.Add(this.logo);
-		this.Controls.Add(this.resolution);
+		this.Controls.Add(this.currentStatus);
 		this.Controls.Add(this.apply);
 		this.Controls.Add(this.saveShortcut);
 		this.Controls.Add(this.refresh);
-		this.Controls.Add(this.currentStatus);
+		this.Controls.Add(this.resolution);
 
 		this.ResumeLayout(false);
 	}
