@@ -216,7 +216,8 @@ class WindowProjectorWindow {
 
 		Console.WriteLine(titleStr);
 		if (titleStr != "ウィンドウ プロジェクター (プレビュー)")
-			return true;
+			if (titleStr != "Windowed Projector (Preview)")
+				return true;
 
 		int pid;
 		GetWindowThreadProcessId(hWnd, out pid);
