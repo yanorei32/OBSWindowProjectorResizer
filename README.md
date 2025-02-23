@@ -1,3 +1,10 @@
+# Unmaintained!
+
+This project is currently unmaintained!
+
+Please use the ***winresz***.  
+https://github.com/yanorei32/winresz
+
 # OBS WindowProjector Resizer
 
 ## How to use
