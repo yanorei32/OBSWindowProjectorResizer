@@ -1,4 +1,4 @@
-# Unmaintained!
+# NO ACTIVE DEVELOPMENT!
 
 This project is currently unmaintained!
 
